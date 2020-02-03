@@ -1,0 +1,24 @@
+{
+    "name": "wearejust/kirby-sheets",
+    "description": "Kirby plugin to write data to Google Sheets",
+    "type": "kirby-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cees van Egmond",
+            "email": "cees.vanegmond@wearejust.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Wearejust\\KirbySheets\\": "src/"
+        }
+    },
+    "require": {
+        "getkirby/composer-installer": "^1.1",
+        "google/apiclient": "^2.4"
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}
