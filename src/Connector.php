@@ -36,9 +36,11 @@ class Connector
     public function append($spreadsheetId, string $sheetName, array $data)
     {
         $range = "{$sheetName}!A1:Z1";
-        $rows = $this->sheets->spreadsheets_values->get($spreadsheetId, $range, ['majorDimension' => 'ROWS']);
 
         $this->createTabIfNonExistent($spreadsheetId, $sheetName);
+
+        $rows = $this->sheets->spreadsheets_values->get($spreadsheetId, $range, ['majorDimension' => 'ROWS']);
+
         $this->createHeadings($spreadsheetId, $sheetName, array_keys($data), $rows, $range);
         $this->createRow($spreadsheetId, $sheetName, $rows, $data);
 
