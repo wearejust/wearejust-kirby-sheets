@@ -65,7 +65,7 @@ class Connector
 
     private function createHeadings($spreadsheetId, $sheetName, array $headings, $rows, $range)
     {
-        if (! count($rows->values)) {
+        if ($rows->values === null || count($rows->values) === 0) {
             $requestBody = new Google_Service_Sheets_ValueRange();
             $requestBody->setValues(['values' => $headings]);
             $this->sheets->spreadsheets_values->append($spreadsheetId, $range, $requestBody, ['valueInputOption' => 'RAW']);
